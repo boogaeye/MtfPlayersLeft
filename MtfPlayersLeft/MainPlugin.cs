@@ -15,15 +15,15 @@ namespace MtfPlayersLeft
         {
             eventHandler = new EventHandler(this);
             Exiled.Events.Handlers.Server.RoundStarted += eventHandler.OnRoundStart;
-            Exiled.Events.Handlers.Server.RespawningTeam += eventHandler.OnNtfRespawn;
+            Exiled.Events.Handlers.Map.AnnouncingNtfEntrance += eventHandler.OnNtfAnnounced;
             Exiled.Events.Handlers.Player.ChangingRole += eventHandler.RoleChange;
             base.OnEnabled();
         }
 
         public override void OnDisabled()
         {
-            Exiled.Events.Handlers.Server.RoundStarted -= eventHandler.OnRoundStart;
-            Exiled.Events.Handlers.Server.RespawningTeam -= eventHandler.OnNtfRespawn;
+            Exiled.Events.Handlers.Server.RoundStarted -= eventHandler.OnRoundStart; 
+            Exiled.Events.Handlers.Map.AnnouncingNtfEntrance -= eventHandler.OnNtfAnnounced;
             Exiled.Events.Handlers.Player.ChangingRole -= eventHandler.RoleChange;
             base.OnDisabled();
         }
